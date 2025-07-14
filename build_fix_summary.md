@@ -1,10 +1,17 @@
 # Jekyll Build Fix for Vercel Deployment
 
 ## Problem
-The Jekyll site was failing to build on Vercel with the error:
+The Jekyll site was failing to build on Vercel with multiple errors:
+
+1. Initial error:
 ```
 sh: line 1: jekyll: command not found
 Error: Command "jekyll build" exited with 127
+```
+
+2. Configuration error after initial fix:
+```
+Build "src" is "_config.yml" but expected "package.json" or "build.sh"
 ```
 
 ## Root Cause
@@ -22,10 +29,10 @@ Created the following files to fix the build:
 - Added common Jekyll plugins (feed, sitemap, seo-tag)
 
 ### 2. `vercel.json`
-- Configured Vercel to use `@vercel/static-build`
 - Set build command: `bundle install && bundle exec jekyll build`
 - Set output directory to `_site`
 - Specified install command for dependencies
+- Removed complex build configuration to use simpler approach
 
 ### 3. `package.json`
 - Added build script for Vercel compatibility
@@ -38,6 +45,11 @@ Created the following files to fix the build:
 
 ### 5. `.ruby-version`
 - Specified Ruby 3.0.0 for consistent builds
+
+### 6. `build.sh`
+- Created executable build script as alternative method
+- Contains the same build commands as package.json
+- Provides fallback if Vercel prefers shell scripts
 
 ## Next Steps
 1. Commit and push these files to the repository
