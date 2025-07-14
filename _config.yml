@@ -1,1 +1,29 @@
 theme: jekyll-theme-cayman
+
+# Site settings
+title: CBD Shop
+description: >-
+  Your CBD shop description here.
+baseurl: ""
+url: "https://cbd-shop.ga"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .git/
+  - .github/
+  - README.md
