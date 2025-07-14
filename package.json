@@ -1,0 +1,8 @@
+{
+  "name": "cbd-shop",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "bundle install && bundle exec jekyll build"
+  },
+  "devDependencies": {}
+}
